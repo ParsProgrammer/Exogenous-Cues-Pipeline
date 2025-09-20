@@ -24,6 +24,11 @@ Filtering content directly for quality is computationally expensive, difficult t
 ✅ **Our alternative:** Use **exogenous cues** (contextual signals) as proxies for information quality.  
 Example: A news domain with a politically diverse audience is more likely to be reliable.  
 
+<p align="center">
+  <img src="images/diversity_partisanship.png" width="350" alt="MAE Random Forest Models - US">
+  <img src="images/corr_NG_diversity_qn.png" width="350" alt="MAE Random Forest Models - Germany">
+</p>
+
 ---
 
 ## 🎯 Project Goals
@@ -40,6 +45,10 @@ Explored exogenous cues:
 - Skewness of article distribution  
 - Cognitive centrality of domains (multiple variants)  
 
+<p align="center">
+  <img src="images/NG_centrality_closeness_right.png" width="300" alt="MAE Random Forest Models - US">
+</p>
+
 ### Phase 2 — Building an Augmented Recommender System
 We integrated the strongest cues into standard recommendation algorithms to create an **augmented model**.  
 This approach improves recommendation quality without directly filtering or censoring content.  
@@ -55,11 +64,25 @@ We framed prediction as a **regression task**: estimating NewsGuard scores from 
 
 Models used:
 - **Random Forest** → captured non-linear relationships, robust against noisy signals  
-- **Elastic Net** → interpretable, identified the most relevant features while reducing redundancy  
+- **Elastic Net** → interpretable, identified the most relevant features while reducing redundancy
+  
+### Elastic Net MAE Comparison (US vs Germany)
+<p align="center">
+  <img src="images/MAE_Elastic%20Net%20Models_US.png" width="350" alt="MAE Elastic Net Models - US">
+  <img src="images/MAE_Elastic%20Net%20Models_Germany.png" width="350" alt="MAE Elastic Net Models - Germany">
+</p>
 
-Key insights:
+### Random Forest MAE Comparison (US vs Germany)
+<p align="center">
+  <img src="images/MAE_Random%20Forest%20Models_US.png" width="350" alt="MAE Random Forest Models - US">
+  <img src="images/MAE_Random%20Forest%20Models_Germany.png" width="350" alt="MAE Random Forest Models - Germany">
+</p>
+
+### Key insights:
 - Random Forest achieved strong predictive performance.  
 - Elastic Net revealed which contextual cues most consistently influenced information quality.  
 - Together, they balanced **accuracy and interpretability**.  
 
+Explainability:
+![Elastic Net performance with diversity cue](images/Elastic%20Net_With_diversity.png)
 ---
