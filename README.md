@@ -83,6 +83,7 @@ Models used:
 - Elastic Net revealed which contextual cues most consistently influenced information quality.  
 - Together, they balanced **accuracy and interpretability**.  
 
-Explainability:
+### Explainability:
+
 ![Elastic Net performance with diversity cue](images/Elastic%20Net_With_diversity.png)
 ---
