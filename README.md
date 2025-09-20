@@ -1,88 +1,65 @@
 # Exogenous-Cues-Pipeline
 This is the pipeline where we examined candidate cues.
 
-📖 # Introduction
+## 📖 Introduction
+Democracy in the 21st century is facing challenges, with the **public sphere** — the space for political discussion — changing in concerning ways. Social media plays a dual role:
 
-Many experts argue that democracy is facing a crisis in the 21st century. A major factor is the transformation of the public sphere — the space where political discussion happens.
+- **Positive:** Platforms like Twitter/X and Facebook make political debate more open and accessible.  
+- **Negative:** They create echo chambers, fragment discussion, weaken civil debate norms, and reduce trust in institutions.  
 
-Social media has a dual role in this process:
+This project addresses the issue from three perspectives:
+1. Collecting stronger evidence about how social media affects political debates and society.  
+2. Understanding the mechanisms behind these effects.  
+3. Developing tools to help social media better support democracy — improving debate, building legitimacy, and strengthening democratic citizenship.  
 
-Positive: platforms like Twitter/X and Facebook make political debate more open and accessible.
+---
 
-Negative: they fragment discussion, create echo chambers, weaken norms of civil debate, and reduce trust in institutions.
+## 🧩 The Problem
+Social media platforms rely on **engagement-driven recommender systems**, usually powered by collaborative filtering. These systems:
+- Maximize clicks, likes, and shares rather than information quality.  
+- Promote misinformation, gossip, or sensational content as effectively as fact-based reporting.  
 
-This project investigates these challenges from three perspectives:
+Filtering content directly for quality is computationally expensive, difficult to scale, and raises censorship concerns.  
 
-Collecting stronger evidence about how social media affects political debate and society.
+✅ **Our alternative:** Use **exogenous cues** (contextual signals) as proxies for information quality.  
+Example: A news domain with a politically diverse audience is more likely to be reliable.  
 
-Understanding the mechanisms behind these effects.
+---
 
-Developing tools to help platforms better support democracy — by improving debate, building legitimacy, and strengthening democratic citizenship.
+## 🎯 Project Goals
+Our research is structured into two main phases:  
 
-🧩 The Problem
+### Phase 1 — Identifying Useful Exogenous Cues
+We tested several cues against **NewsGuard** scores (0–100 reliability ratings by professional journalists).  
+Cues that showed significant correlation with NewsGuard ratings were retained as predictors.
 
-Most content people see on social media is filtered by engagement-driven algorithms, typically using collaborative filtering.
+Explored exogenous cues:
+- Political diversity of a domain’s broadcasters  
+- Popularity of domains  
+- Skewness of broadcaster distribution  
+- Skewness of article distribution  
+- Cognitive centrality of domains (multiple variants)  
 
-⚠️ The problem:
-
-These systems maximize clicks, likes, and shares — not information quality.
-
-Misinformation, gossip, and sensationalism often spread as effectively as fact-based journalism.
-
-Directly filtering content for quality is difficult at scale, computationally expensive, and raises censorship/bias concerns.
-
-✅ The alternative: Exogenous cues — signals that indicate reliability based on context rather than content.
-
-Example: partisan diversity of a site’s readership. A more politically diverse audience often correlates with higher information quality.
-
-🎯 Project Goals
-
-Our research is organized into two main phases:
-
-Phase 1 — Identifying Useful Exogenous Cues
-
-We tested several cues against NewsGuard scores (our benchmark for information quality).
-NewsGuard rates news domains (0 = unreliable, 100 = highly reliable) using transparent, apolitical journalistic standards.
-
-Explored cues included:
-
-Political diversity of a domain’s broadcasters
-
-Popularity of domains
-
-Skewness of broadcasters’ distribution
-
-Skewness of article distribution
-
-Cognitive centrality of domains (multiple variants)
-
-Cues significantly correlated with NewsGuard scores were retained as predictors.
-
-Phase 2 — Building an Augmented Recommender System
-
-We integrated promising cues into standard recommendation algorithms.
-The aim: improve recommendation quality without analyzing or censoring content directly.
+### Phase 2 — Building an Augmented Recommender System
+We integrated the strongest cues into standard recommendation algorithms to create an **augmented model**.  
+This approach improves recommendation quality without directly filtering or censoring content.  
 
 Datasets:
+- Twitter/X data from the **US** and **Germany**  
+- Included users’ partisanship, allowing analysis of how domains spread across the political spectrum  
 
-Twitter/X data from the US and Germany.
+---
 
-Users’ partisanship was pre-computed, allowing analysis of how domains spread across the political spectrum.
+## 📊 Modeling & Results
+We framed prediction as a **regression task**: estimating NewsGuard scores from contextual cues.  
 
-📊 Modeling & Results
+Models used:
+- **Random Forest** → captured non-linear relationships, robust against noisy signals  
+- **Elastic Net** → interpretable, identified the most relevant features while reducing redundancy  
 
-We framed the problem as a regression task: predicting NewsGuard scores from contextual cues.
+Key insights:
+- Random Forest achieved strong predictive performance.  
+- Elastic Net revealed which contextual cues most consistently influenced information quality.  
+- Together, they balanced **accuracy and interpretability**.  
 
-Models applied:
-
-Random Forest → captured non-linear relationships and handled noisy signals.
-
-Elastic Net → more interpretable, highlighted the most relevant features while reducing redundancy.
-
-Key takeaway:
-
-Random Forest ensured robust predictions.
-
-Elastic Net revealed which contextual cues consistently drove information quality.
-
-Together, these approaches balanced accuracy and interpretability.
+---
