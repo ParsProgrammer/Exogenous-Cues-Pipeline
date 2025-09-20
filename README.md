@@ -1,5 +1,5 @@
 # Exogenous-Cues-Pipeline
-This is the pipeline where we examined candidate cues.
+This is the pipeline where we examined candidate cues of quality.
 
 ## 📖 Introduction
 Democracy in the 21st century is facing challenges, with the **public sphere** — the space for political discussion — changing in concerning ways. Social media plays a dual role:
