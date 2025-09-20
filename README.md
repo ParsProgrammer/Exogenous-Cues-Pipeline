@@ -1,7 +1,7 @@
 # Exogenous-Cues-Pipeline
 This is the pipeline where we examined candidate cues.
 
-📖 Introduction
+#📖 Introduction
 
 Many experts argue that democracy is facing a crisis in the 21st century. A major factor is the transformation of the public sphere — the space where political discussion happens.
 
