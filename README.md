@@ -8,7 +8,7 @@ This is the pipeline where we examined candidate cues of quality.
 </a>
 
 
-## 📖 Introduction
+## 📖 Introduction [(SoMe4Dem)](https://some4dem.eu/consortium)
 Democracy in the 21st century is facing challenges, with the **public sphere** — the space for political discussion — changing in concerning ways. Social media plays a dual role:
 
 - **Positive:** Platforms like Twitter/X and Facebook make political debate more open and accessible.  
