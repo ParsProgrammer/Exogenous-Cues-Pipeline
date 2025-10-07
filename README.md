@@ -1,4 +1,4 @@
-# Exogenous-Cues-Pipeline
+# Information Quality & Recommender Systems
 This is the pipeline where we examined candidate cues of information quality.
 ## ▶ Video
 <a href="https://youtu.be/YW6qo-Xlrgc" target="_blank">
