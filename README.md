@@ -1,5 +1,5 @@
 # Exogenous-Cues-Pipeline
-This is the pipeline where we examined candidate cues of quality.
+This is the pipeline where we examined candidate cues of information quality.
 ## ▶ Video
 <a href="https://youtu.be/YW6qo-Xlrgc" target="_blank">
   <img src="https://img.youtube.com/vi/YW6qo-Xlrgc/maxresdefault.jpg" 
