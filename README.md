@@ -115,8 +115,10 @@ These insights directly shaped how cues are incorporated into the recommender.
 
 # 🏗 Recommender System Pipeline
 Beyond predicting NewsGuard scores, we developed a **complete recommender system pipeline** following the architecture described below 
+<p align="center">
+  <img src="images/main_arch.png" width="600">
+</p>
 
----
 
 ## **1️⃣ User–Domain Matrix Construction**
 We aggregate broadcasters and domains to build a sparse matrix of user–domain interactions.  
