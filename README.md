@@ -153,24 +153,77 @@ These learned parameters are later used to weight cues when re-ranking recommend
 
 ---
 
-## **4️⃣ Logistic Cue Transformation & Re-Ranking**
-Each cue is passed through a **logistic transformation**:
+---
+
+## 🔢 Logistic Transformation of Cues
+
+To incorporate information-quality cues into the recommender system, we map cue values into a bounded “impact” term using a **logistic function**. This lets us smoothly adjust the CF-predicted rating without manually clipping or thresholding values.
+
+### Single-cue logistic transformation
+
+For a single cue value \(x\) (e.g., diversity of a domain), we use:
 
 \[
-f(x) = \frac{1}{1 + e^{-\alpha(x - \beta)}}
+f(x) = \frac{L}{1 + e^{-k(x - x_0)}}
 \]
 
-Where:
+where:
 
-- **α** and **β** come from the **learned model parameters**  
-- The transformation yields a smooth, bounded influence for each cue  
-- These transformed cues modify the CF score:
+| Parameter | Meaning      | Effect                             |
+|----------|--------------|------------------------------------|
+| **L**    | Upper limit  | Maximum impact value               |
+| **k**    | Growth rate  | Controls curve steepness           |
+| **x₀**   | Midpoint     | Shifts the curve left / right      |
+| **x**    | Cue value    | Position on the curve              |
+
+<p align="center">
+  <img src="images/log.png" width="650" alt="Logistic function illustration">
+</p>
+
+---
+
+### Multi-cue logistic transformation (combined cues)
+
+For multiple cues \(\mathbf{c} = (c_1, \dots, c_n)\) describing the same domain, we first **combine the cues into a single scalar value** and then apply *one* logistic function.
+
+#### 1) Equal-weight combination
+
+All cues contribute equally:
 
 \[
-Score_{\text{final}}(u, d) = CF(u, d) + \sum_i w_i \cdot f_i(\text{cue}_{i,d})
+z = \frac{1}{n} \sum_{i=1}^{n} c_i
 \]
 
-This creates a **quality-aware ranking** that preserves personalization.
+#### 2) Learned-weight combination
+
+We also use **learned importance weights** \(\mathbf{w} = (w_1, \dots, w_n)\) from our ML models (Elastic Net coefficients or Random Forest feature importances):
+
+\[
+z = \sum_{i=1}^{n} w_i \, c_i = \mathbf{w}^\top \mathbf{c}
+\]
+
+In both cases, the combined value \(z\) is passed through the same logistic function:
+
+\[
+f(\mathbf{c}) = \frac{L}{1 + e^{-k(z - x_0)}}
+\]
+
+<p align="center">
+  <img src="images/log2.png" width="820" alt="Logistic function variations">
+</p>
+
+---
+
+### Cue-augmented recommendation score
+
+The logistic output acts as an impact term that adjusts the collaborative-filtering prediction:
+
+\[
+\text{Score}_{\text{final}}(u, d)
+= CF(u, d) + f(\mathbf{c}_d)
+\]
+
+where \(CF(u,d)\) is the baseline collaborative-filtering score and \(f(\mathbf{c}_d)\) is the quality-aware adjustment computed from the domain’s cues using either **equal** or **learned** weights.
 
 ---
 
