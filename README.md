@@ -161,10 +161,10 @@ To incorporate information-quality cues into the recommender system, we map cue 
 
 ### Single-cue logistic transformation
 
-For a single cue value \(x\) (e.g., diversity of a domain), we use:
+For a single cue value (x) (e.g., diversity of a domain), we use:
 
 <p align="center">
-  <img src="images/log_single.png" width="300">
+  <img src="images/log_single.png" width="200">
 </p>
 where:
 
@@ -180,27 +180,27 @@ where:
 
 ### Multi-cue logistic transformation (combined cues)
 
-For multiple cues \(\mathbf{c} = (c_1, \dots, c_n)\) describing the same domain, we first **combine the cues into a single scalar value** and then apply *one* logistic function.
+For multiple cues, we first **combine the cues into a single scalar value** and then apply *one* logistic function.
 
 #### 1) Equal-weight combination
 
 All cues contribute equally:
 
 <p align="center">
-  <img src="images/equal_weight.png" width="300">
+  <img src="images/equal_weight.png" width=150">
 </p>
 
 #### 2) Learned-weight combination
 
-We also use **learned importance weights** \(\mathbf{w} = (w_1, \dots, w_n)\) from our ML models (Elastic Net coefficients or Random Forest feature importances):
+We also use **learned importance weights** from our ML models (Elastic Net coefficients or Random Forest feature importances):
 
 <p align="center">
-  <img src="images/learned_weights.png" width="300">
+  <img src="images/learned weights.png" width="200">
 </p>
-In both cases, the combined value \(z\) is passed through the same logistic function:
+In both cases, the combined value (z) is passed through the same logistic function:
 
 <p align="center">
-  <img src="images/log multiple.png" width="300">
+  <img src="images/log multiple.png" width="200">
 </p>
 
 
@@ -215,7 +215,7 @@ The logistic output acts as an impact term that adjusts the collaborative-filter
   <img src="images/final_score.png" width="300">
 </p>
 
-where \(CF(u,d)\) is the baseline collaborative-filtering score and \(f(\mathbf{c}_d)\) is the quality-aware adjustment computed from the domain’s cues using either **equal** or **learned** weights.
+where \(CF(u,d)\) is the baseline collaborative-filtering score and (f({c}_d)) is the quality-aware adjustment computed from the domain’s cues using either **equal** or **learned** weights.
 
 ---
 
