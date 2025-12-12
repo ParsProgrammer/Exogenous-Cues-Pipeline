@@ -163,10 +163,9 @@ To incorporate information-quality cues into the recommender system, we map cue 
 
 For a single cue value \(x\) (e.g., diversity of a domain), we use:
 
-\[
-f(x) = \frac{L}{1 + e^{-k(x - x_0)}}
-\]
-
+<p align="center">
+  <img src="images/log_single.png" width="300">
+</p>
 where:
 
 | Parameter | Meaning      | Effect                             |
@@ -176,9 +175,6 @@ where:
 | **x₀**   | Midpoint     | Shifts the curve left / right      |
 | **x**    | Cue value    | Position on the curve              |
 
-<p align="center">
-  <img src="images/log.png" width="650" alt="Logistic function illustration">
-</p>
 
 ---
 
@@ -190,27 +186,24 @@ For multiple cues \(\mathbf{c} = (c_1, \dots, c_n)\) describing the same domain,
 
 All cues contribute equally:
 
-\[
-z = \frac{1}{n} \sum_{i=1}^{n} c_i
-\]
+<p align="center">
+  <img src="images/equal_weight.png" width="300">
+</p>
 
 #### 2) Learned-weight combination
 
 We also use **learned importance weights** \(\mathbf{w} = (w_1, \dots, w_n)\) from our ML models (Elastic Net coefficients or Random Forest feature importances):
 
-\[
-z = \sum_{i=1}^{n} w_i \, c_i = \mathbf{w}^\top \mathbf{c}
-\]
-
+<p align="center">
+  <img src="images/learned_weights.png" width="300">
+</p>
 In both cases, the combined value \(z\) is passed through the same logistic function:
 
-\[
-f(\mathbf{c}) = \frac{L}{1 + e^{-k(z - x_0)}}
-\]
-
 <p align="center">
-  <img src="images/log2.png" width="820" alt="Logistic function variations">
+  <img src="images/log multiple.png" width="300">
 </p>
+
+
 
 ---
 
@@ -218,10 +211,9 @@ f(\mathbf{c}) = \frac{L}{1 + e^{-k(z - x_0)}}
 
 The logistic output acts as an impact term that adjusts the collaborative-filtering prediction:
 
-\[
-\text{Score}_{\text{final}}(u, d)
-= CF(u, d) + f(\mathbf{c}_d)
-\]
+<p align="center">
+  <img src="images/final_score.png" width="300">
+</p>
 
 where \(CF(u,d)\) is the baseline collaborative-filtering score and \(f(\mathbf{c}_d)\) is the quality-aware adjustment computed from the domain’s cues using either **equal** or **learned** weights.
 
