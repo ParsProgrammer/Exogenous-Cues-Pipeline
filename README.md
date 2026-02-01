@@ -3,7 +3,7 @@ This repository contains the full pipeline we developed to identify cues of info
 ## 🤝 Team
 
 <p align="center">
-  <img src="images/team.png" width="450">
+  <img src="images/team.png" width="550">
 </p>
 
 ## ▶ Video
