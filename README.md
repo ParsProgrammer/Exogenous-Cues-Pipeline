@@ -1,5 +1,6 @@
 # Recommender Systems for Quality Political News
-This repository contains the full pipeline we developed to identify cues of information quality and integrate them into an augmented recommender system.
+A complete, end-to-end pipeline for improving the quality of news recommendations without direct content filtering. Instead of classifying content, it uses exogenous cues (contextual, network, and audience signals) as proxies for information quality, validates them against NewsGuard (0–100), then injects the strongest cues into a recommender as a quality-aware adjustment layer.
+
 ## 🤝 Team
 
 <p align="center">
