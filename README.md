@@ -2,6 +2,9 @@
 This repository contains the full pipeline we developed to identify cues of information quality and integrate them into an augmented recommender system.
 ## 🤝 Team
 
+<p align="center">
+  <img src="images/team.png" width="450">
+</p>
 
 ## ▶ Video
 <a href="https://youtu.be/YW6qo-Xlrgc" target="_blank">
