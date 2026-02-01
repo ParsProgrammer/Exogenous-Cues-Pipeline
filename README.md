@@ -1,5 +1,7 @@
-# Information Quality & Recommender Systems
+# Recommender Systems for Quality Political News
 This repository contains the full pipeline we developed to identify cues of information quality and integrate them into an augmented recommender system.
+## 🤝 Team
+
 
 ## ▶ Video
 <a href="https://youtu.be/YW6qo-Xlrgc" target="_blank">
