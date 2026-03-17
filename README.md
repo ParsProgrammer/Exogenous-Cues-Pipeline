@@ -1,13 +1,7 @@
+
 # Recommender Systems for Quality Political News Source
 A complete, end-to-end pipeline for improving the quality of news recommendations without direct content filtering. Instead of classifying content, it uses exogenous cues (contextual, network, and audience signals) as proxies for information quality, validates them against NewsGuard (0–100), then injects the strongest cues into a recommender as a quality-aware adjustment layer.
 
--- Code availability upon request.
-
-## 🤝 Team
-
-<p align="center">
-  <img src="images/team.png" width="550">
-</p>
 
 ## ▶ Video
 <a href="https://youtu.be/YW6qo-Xlrgc" target="_blank">
@@ -15,6 +9,13 @@ A complete, end-to-end pipeline for improving the quality of news recommendation
        alt="Watch the video" 
        width="600">
 </a>
+
+---
+
+## 🌐 Deployment
+
+The outputs of this research are currently being used in production and are available on:  
+👉 https://www.meydanews.com
 
 ---
 
@@ -251,3 +252,14 @@ This project demonstrates that:
 
 The repository includes the complete pipeline: cue extraction, model training, recommender algorithms, logistic re-ranking, and evaluation.
 
+
+# 🤝 Team
+
+<p align="center">
+  <img src="images/team.png" width="550">
+</p>
+
+# 🚧 Code Availability
+
+The source code for this project is currently **not publicly available**.  
+Access can be provided **upon request**.
