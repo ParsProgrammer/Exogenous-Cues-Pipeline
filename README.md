@@ -1,3 +1,10 @@
+### Funding & Acknowledgements
+
+This project is developed as part of the **SoMe4Dem** (Social Media for Democracy) research project, funded by the European Union under the Horizon Europe programme (Grant No. 101094752).
+
+SoMe4Dem brings together an interdisciplinary consortium of European research institutions, including the Max Planck Institutes, University of Amsterdam, Sciences Po, and others, to study the impact of social media on political discourse and democracy.
+
+The project aims to better understand how information spreads in online environments and to develop tools that improve the quality of information and support healthier public debate.
 
 # Recommender Systems for Quality Political News Source
 A complete, end-to-end pipeline for improving the quality of news recommendations without direct content filtering. Instead of classifying content, it uses exogenous cues (contextual, network, and audience signals) as proxies for information quality, validates them against NewsGuard (0–100), then injects the strongest cues into a recommender as a quality-aware adjustment layer.
