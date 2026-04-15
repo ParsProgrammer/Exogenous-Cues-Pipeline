@@ -19,12 +19,7 @@ A complete, end-to-end pipeline for improving the quality of news recommendation
 
 ---
 
-## 🌐 Deployment
 
-The outputs of this research are currently being used in production and are available on:  
-👉 https://www.meydanews.com
-
----
 
 ## 📖 Introduction [(SoMe4Dem)](https://some4dem.eu/consortium)
 Democracy in the 21st century is undergoing rapid transformation. The **public sphere**, where political discussion takes place, has increasingly shifted to digital platforms — bringing both opportunities and risks.
@@ -266,7 +261,5 @@ The repository includes the complete pipeline: cue extraction, model training, r
   <img src="images/team.png" width="550">
 </p>
 
-# 🚧 Code Availability
-
-The source code for this project is currently **not publicly available**.  
+# 🚧 Data Availability
 Access can be provided **upon request**.
